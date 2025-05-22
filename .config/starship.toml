@@ -1,0 +1,147 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+right_format = """
+[](color_bg1)$kubernetes\
+[](fg:color_bg1 bg:color_bg2)$time
+"""
+
+format = """
+[](color_green)$sudo\
+(fg:color_green bg:color_bg1)\
+$directory\
+[](fg:color_bg1 bg:color_bg2)\
+$git_branch\
+$git_status\
+[](fg:color_bg2 bg:color_bg3)\
+$golang\
+$gradle\
+$haskell\
+$java\
+$nodejs\
+$nim\
+$rust\
+$scala\
+[](fg:color_bg3 bg:color_green)\
+$docker_context\
+[ ](fg:#33658A)\
+$line_break$character
+"""
+palette = 'mine'
+
+[palettes.mine]
+color_fg0 = '#fbf1c7'
+color_fg1 = '#9A348E'
+color_bg1 = '#33658A'
+color_bg2 = '#5578AD'
+color_bg3 = '#779ACE'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_yellow = '#d79921'
+
+
+
+[character]
+success_symbol = '[󱞪](bold green) '
+error_symbol = '[✗](bold red) '
+
+
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:color_bg2"
+format = '[ $time ]($style)'
+
+[cmd_duration]
+min_time = 5000
+format = '\[[⏱ $duration]($style)\]'
+
+[directory]
+style = "bg:color_bg1"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[docker_context]
+symbol = " "
+format = ' [$symbol$context]($style)'
+
+[gcloud]
+symbol = "  "
+format = '[$symbol$account(@$domain)(\($region\))]($style)'
+
+[git_branch]
+style = "bg:color_bg2"
+symbol = "  "
+format = '[$symbol$branch]($style)'
+
+[git_commit]
+style = "bg:color_bg2"
+tag_symbol = '  '
+format = '( [$all_status$ahead_behind]($style))'
+
+[golang]
+symbol = "  "
+style = "bg:color_bg3"
+format = '[$symbol($version)]($style)'
+
+[java]
+symbol = " "
+style = "bg:#33658A"
+format = ' [$symbol($version)]($style)'
+
+[kotlin]
+symbol = " "
+style = "bg:#33658A"
+format = ' [$symbol($version)]($style)'
+
+[lua]
+symbol = " "
+style = "bg:#33658A"
+format = ' [$symbol($version)]($style)'
+
+[nodejs]
+symbol = " "
+style = "bg:#33658A"
+format = ' [$symbol($version)]($style)'
+
+[python]
+symbol = " "
+style = "bg:#33658A"
+format = ' [${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)'
+
+[rust]
+symbol = "󱘗 "
+style = "bg:#33658A"
+format = ' [$symbol($version)]($style)'
+
+[scala]
+symbol = " "
+style = "bg:#33658A"
+format = ' [$symbol($version)]($style)'
+
+[gradle]
+symbol = " "
+style = "bg:#33658A"
+format = ' [$symbol($version)]($style)'
+
+[kubernetes]
+format = ' [$symbol$context( \($namespace\))]($style)'
+style = "bg:color_bg1"
+
+#### DISABLED
+
+[package]
+disabled = true
+
+[username]
+disabled = true
+
+[hostname]
+disabled = true
+
+
